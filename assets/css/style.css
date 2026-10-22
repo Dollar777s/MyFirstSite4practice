@@ -34,7 +34,7 @@
     --surface-color: #1E1E1E;
     --text-primary: #FFFFFF;
     --text-secondary: #A0A0A0;
-    --accent-color: #7B61FF; /* Пример фиолетового акцента, поменяй под медиа */
+    --accent-color: #7B61FF; /* Пример фиолетового акцента */
     --accent-hover: #9A84FF;
     --border-color: #333333;
     --font-main: 'Rubik', sans-serif;
@@ -163,7 +163,7 @@ button, input, textarea, select {
 }
 
 .header__logo-img {
-    height: 40px; /* Подгони под свою картинку логотипа */
+    height: 40px; 
     width: auto;
 }
 
@@ -322,9 +322,63 @@ button, input, textarea, select {
     color: var(--text-secondary);
     font-size: 0.95rem;
 }
+/* =========================================
+   14. ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ РЕГИСТРАЦИИ
+   ========================================= */
+
+/* Делаем карточку шире для регистрации */
+.auth__card--wide {
+    max-width: 600px;
+}
+
+/* Расположение полей в два столбца (Фамилия/Имя, Дата/Телефон) */
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1; /* Каждое поле занимает 50% ширины */
+}
+
+/* Стили для чекбокса */
+.form-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
+.form-checkbox__input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent-color); /* Красит галочку в наш фиолетовый */
+    cursor: pointer;
+    margin-top: 2px; /* Чуть опускаем, чтобы выровнять с текстом */
+}
+
+.form-checkbox__label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    line-height: 1.4;
+}
+
+/* Адаптив для формы регистрации (на мобилках поля встают в столбик) */
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0; /* Убираем горизонтальный отступ, так как они друг под другом */
+    }
+    
+    .auth__card {
+        padding: 30px 20px; /* Уменьшаем отступы на мобилке */
+    }
+}
 
 /* =========================================
-   6. АДАПТИВ ШАПКИ (Mobile & Tablet)
+   АДАПТИВ ШАПКИ (Mobile & Tablet)
    ========================================= */
 @media (max-width: 768px) {
     /* Показываем бургер */
