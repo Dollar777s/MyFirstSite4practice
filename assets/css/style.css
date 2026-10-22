@@ -353,7 +353,7 @@ button, input, textarea, select {
 .form-checkbox__input {
     width: 18px;
     height: 18px;
-    accent-color: var(--accent-color); /* Красит галочку в наш фиолетовый */
+    accent-color: var(--accent-color); /* Красит галочку в фиолетовый */
     cursor: pointer;
     margin-top: 2px; /* Чуть опускаем, чтобы выровнять с текстом */
 }
@@ -364,6 +364,155 @@ button, input, textarea, select {
     cursor: pointer;
     line-height: 1.4;
 }
+
+/* =========================================
+   15. ЛИЧНЫЙ КАБИНЕТ (PROFILE)
+   ========================================= */
+.profile {
+    padding: 60px 0;
+    min-height: calc(100vh - 80px - 250px);
+}
+
+.profile__grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Левая колонка уже (1 часть), правая шире (2 части) */
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* Карточки в профиле */
+.profile__card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.profile__subtitle {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+/* Список данных */
+.profile__info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.profile__info-list li {
+    color: var(--text-secondary);
+}
+
+.profile__info-list strong {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Кнопка смены пароля */
+.profile__settings-btn {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Переключатель темы */
+.profile__theme-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
+
+.profile__hint {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 10px;
+}
+
+/* Свитч (переключатель) */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: var(--border-color);
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.switch__slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.switch input:checked + .switch__slider {
+    background-color: var(--accent-color);
+}
+
+.switch input:checked + .switch__slider:before {
+    transform: translateX(24px);
+}
+
+/* Таблица истории покупок */
+.table-responsive {
+    overflow-x: auto; /* Если таблица не влезает на мобилке, появится скролл */
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.table th, .table td {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.table th {
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.table td {
+    color: var(--text-primary);
+}
+
+.table tr:hover td {
+    background-color: rgba(123, 97, 255, 0.05); /* Легкая подсветка строки при наведении */
+}
+
+/* Адаптив профиля */
+@media (max-width: 768px) {
+    .profile__grid {
+        grid-template-columns: 1fr; /* На мобилках колонки встают друг под другом */
+    }
+}
+
 
 /* Адаптив для формы регистрации (на мобилках поля встают в столбик) */
 @media (max-width: 600px) {
