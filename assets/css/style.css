@@ -129,7 +129,7 @@ button, input, textarea, select {
 
 /* Заголовки секций */
 .section-title {
-    font-size: 2rem;
+    font-size: 2rem;  /* 32 пикселя ( 1 рем равно 16пикселей)*/
     margin-bottom: 30px;
     text-align: center;
 }
@@ -234,7 +234,94 @@ button, input, textarea, select {
     opacity: 1;
     transform: scale(1.1); /* Чуть увеличиваем */
 }
+/* =========================================
+   13. СТРАНИЦЫ АВТОРИЗАЦИИ (ВХОД/РЕГИСТРАЦИЯ)
+   ========================================= */
+.auth {
+    /* Растягиваем блок на всю доступную высоту, чтобы прижать подвал к низу */
+    min-height: calc(100vh - 80px - 250px); /* 80px шапка, ~250px подвал */
+    display: flex;
+    align-items: center; /* Центрируем по вертикали */
+    justify-content: center; /* Центрируем по горизонтали */
+    padding: 60px 20px;
+}
 
+.auth__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.auth__card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 40px;
+    width: 100%;
+    max-width: 450px; /* Максимальная ширина карточки */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Тень для объема */
+}
+
+.auth__title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+/* Группа полей (Label + Input) */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: var(--bg-color); /* Фон поля чуть темнее карточки */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    transition: border-color 0.3s;
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: var(--accent-color); /* Подсветка при клике */
+}
+
+/* Кнопка на всю ширину */
+.auth__submit {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+/* Ссылки */
+.auth__link {
+    display: block;
+    text-align: right;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    transition: color 0.3s;
+}
+
+.auth__link:hover {
+    color: var(--accent-color);
+}
+
+.auth__text {
+    text-align: center;
+    margin-top: 25px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
 
 /* =========================================
    6. АДАПТИВ ШАПКИ (Mobile & Tablet)
