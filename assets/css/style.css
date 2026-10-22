@@ -133,3 +133,163 @@ button, input, textarea, select {
     margin-bottom: 30px;
     text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   5. ШАПКА САЙТА (HEADER)
+   ========================================= */
+.header {
+    background-color: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky; /* Шапка прилипает к верху при скролле */
+    top: 0;
+    z-index: 100;
+    transition: background-color 0.3s ease;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px; /* Высота шапки на десктопе */
+}
+
+.header__logo-img {
+    height: 40px; /* Подгони под свою картинку логотипа */
+    width: auto;
+}
+
+/* --- Навигация (Десктоп) --- */
+.nav__list {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Расстояние между ссылками */
+}
+
+.nav__link {
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav__link:hover {
+    color: var(--accent-color);
+}
+
+/* --- Бургер (скрыт на десктопе) --- */
+.header__toggle {
+    display: none; /* Скрываем сам чекбокс */
+}
+
+.header__burger {
+    display: none; /* Скрываем кнопку на больших экранах */
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 102;
+}
+
+.header__burger-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-primary);
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* =========================================
+   11. ПАРТНЕРЫ
+   ========================================= */
+.partners {
+    padding: 60px 0;
+    background-color: var(--surface-color);
+}
+
+.partners__grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap; /* Если не влезут в ряд, перенесутся */
+}
+
+.partners__logo {
+    height: 60px; /* Высота логотипов */
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(100%); /* Делаем их серыми для стиля */
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.partners__logo:hover {
+    filter: grayscale(0%); /* При наведении возвращаем цвет */
+    opacity: 1;
+    transform: scale(1.1); /* Чуть увеличиваем */
+}
+
+
+/* =========================================
+   6. АДАПТИВ ШАПКИ (Mobile & Tablet)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Показываем бургер */
+    .header__burger {
+        display: flex;
+    }
+
+    /* Настройка выпадающего меню */
+    .header__nav {
+        position: absolute;
+        top: 80px; /* Прямо под шапкой */
+        left: 0;
+        width: 100%;
+        background-color: var(--surface-color);
+        border-bottom: 1px solid var(--border-color);
+        
+        /* Скрываем меню за пределами экрана сверху */
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+        z-index: 101;
+    }
+
+    .nav__list {
+        flex-direction: column; /* Ссылки встают в столбик */
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .nav__item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav__btn {
+        display: block;
+        width: 100%;
+    }
+
+    /* МАГИЯ CSS: Когда чекбокс отмечен (кликнули по бургеру) */
+    .header__toggle:checked ~ .header__nav {
+        transform: translateY(0); /* Выезжает меню */
+    }
+
+    /* Анимация превращения бургера в крестик */
+    .header__toggle:checked ~ .header__burger .header__burger-line:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .header__toggle:checked ~ .header__burger .header__burger-line:nth-child(2) {
+        opacity: 0; /* Средняя линия исчезает */
+    }
+    .header__toggle:checked ~ .header__burger .header__burger-line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+

@@ -7,17 +7,22 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="page">
-    <!-- Шапка -->
+      <!-- Шапка -->
     <header class="header">
         <div class="container header__container">
             <a href="index.html" class="header__logo">
-                <img src="assets/images/logo.png" alt="BestGames">
+                <img src="assets/images/logo.png" alt="BestGames" class="header__logo-img">
             </a>
+
+            <!-- Скрытый чекбокс для бургер-меню (без JS) -->
+            <input type="checkbox" id="burger-toggle" class="header__toggle">
             
-            <!-- Бургер для мобилки -->
-            <button class="header__burger" aria-label="Открыть меню">
-                <span></span><span></span><span></span>
-            </button>
+            <!-- Кнопка бургер (label связывается с чекбоксом по id) -->
+            <label for="burger-toggle" class="header__burger">
+                <span class="header__burger-line"></span>
+                <span class="header__burger-line"></span>
+                <span class="header__burger-line"></span>
+            </label>
 
             <!-- Навигация -->
             <nav class="header__nav nav">
@@ -25,7 +30,9 @@
                     <li class="nav__item"><a href="#search" class="nav__link">Поиск</a></li>
                     <li class="nav__item"><a href="catalog.html" class="nav__link">Каталог игр</a></li>
                     <li class="nav__item"><a href="profile.html" class="nav__link">Личный кабинет</a></li>
-                    <li class="nav__item"><a href="login.html" class="btn btn--primary">Войти</a></li>
+                    <li class="nav__item">
+                        <a href="login.html" class="btn btn--primary nav__btn">Войти</a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -37,21 +44,42 @@
             <div class="container">
                 <h2 class="section-title">Новинки</h2>
                 <div class="slider__wrapper">
+                    
                     <!-- Слайд 1 -->
-                    <article class="slider__slide slide">
-                        <img src="assets/images/game1.jpg" alt="Игра 1" class="slide__img">
+                    <article class="slide">
+                        <img src="assets/images/SpiderGame.jpg" alt="Spider-Man" class="slide__img">
                         <div class="slide__content">
-                            <h3 class="slide__title">Название игры</h3>
-                            <p class="slide__price">1 999 ₽</p>
+                            <h3 class="slide__title">Spider-Man 2</h3>
+                            <p class="slide__price">4 999 ₽</p>
                             <a href="catalog.html" class="btn btn--primary">Подробнее</a>
                         </div>
                     </article>
-                    <!-- Индикаторы -->
-                    <div class="slider__dots">
-                        <span class="slider__dot slider__dot--active"></span>
-                        <span class="slider__dot"></span>
-                        <span class="slider__dot"></span>
-                    </div>
+
+                    <!-- Слайд 2 -->
+                    <article class="slide">
+                        <img src="assets/images/Thor.jpg" alt="God of War" class="slide__img">
+                        <div class="slide__content">
+                            <h3 class="slide__title">God of War: Ragnarok</h3>
+                            <p class="slide__price">5 499 ₽</p>
+                            <a href="catalog.html" class="btn btn--primary">Подробнее</a>
+                        </div>
+                    </article>
+
+                    <!-- Слайд 3 -->
+                    <article class="slide">
+                        <img src="assets/images/BlackSpider.jpg" alt="Miles Morales" class="slide__img">
+                        <div class="slide__content">
+                            <h3 class="slide__title">Spider-Man: Miles Morales</h3>
+                            <p class="slide__price">3 999 ₽</p>
+                            <a href="catalog.html" class="btn btn--primary">Подробнее</a>
+                        </div>
+                    </article>
+
+                </div>
+                <div class="slider__dots">
+                    <span class="slider__dot slider__dot--active"></span>
+                    <span class="slider__dot"></span>
+                    <span class="slider__dot"></span>
                 </div>
             </div>
         </section>
@@ -59,8 +87,17 @@
         <!-- Быстрый поиск по жанрам -->
         <section class="search" id="search">
             <div class="container search__container">
-                <input type="text" class="search__input" placeholder="Введите жанр (RPG, Шутер...)">
-                <button class="btn btn--primary search__btn">Найти</button>
+                <h2 class="section-title">Быстрый поиск по жанрам</h2>
+                <form class="search__form" action="#">
+                    <input type="text" class="search__input" placeholder="Введите жанр (RPG, Шутер, Хоррор...)" list="genres">
+                    <datalist id="genres">
+                        <option value="RPG"></option>
+                        <option value="Шутер"></option>
+                        <option value="Стратегия"></option>
+                        <option value="Хоррор"></option>
+                    </datalist>
+                    <button type="submit" class="btn btn--primary search__btn">Найти</button>
+                </form>
             </div>
         </section>
 
@@ -69,10 +106,21 @@
             <div class="container">
                 <div class="features__grid">
                     <div class="features__item">
-                        <img src="assets/images/icon-price.svg" alt="" class="features__icon">
-                        <span class="features__text">Привлекательные цены</span>
+                        <div class="features__icon">💰</div>
+                        <h3 class="features__title">Привлекательные цены</h3>
                     </div>
-                    <!-- + 3 других -->
+                    <div class="features__item">
+                        <div class="features__icon">🎁</div>
+                        <h3 class="features__title">Ежемесячные акции</h3>
+                    </div>
+                    <div class="features__item">
+                        <div class="features__icon">🎧</div>
+                        <h3 class="features__title">Круглосуточная поддержка</h3>
+                    </div>
+                    <div class="features__item">
+                        <div class="features__icon">⚡</div>
+                        <h3 class="features__title">Быстрая покупка</h3>
+                    </div>
                 </div>
             </div>
         </section>
@@ -82,29 +130,79 @@
             <div class="container">
                 <h2 class="section-title">Популярные игры</h2>
                 <div class="popular__grid">
-                    <!-- Карточка 1 -->
+                    
                     <article class="card">
-                        <img src="assets/images/game1.jpg" alt="Игра" class="card__img">
+                        <img src="assets/images/SpiderGame.jpg" alt="Spider-Man" class="card__img">
                         <div class="card__content">
-                            <h3 class="card__title">Название</h3>
-                            <p class="card__genre">Жанр</p>
-                            <p class="card__dev">Разработчик</p>
+                            <h3 class="card__title">Spider-Man 2</h3>
+                            <p class="card__genre">Экшен</p>
+                            <p class="card__dev">Insomniac Games</p>
                             <div class="card__rating">★★★★★</div>
-                            <p class="card__price">1 999 ₽</p>
-                            <a href="catalog.html" class="btn btn--outline">В каталог</a>
+                            <p class="card__price">4 999 ₽</p>
+                            <a href="catalog.html" class="btn btn--outline card__btn">В каталог</a>
                         </div>
                     </article>
+
+                    <article class="card">
+                        <img src="assets/images/Thor.jpg" alt="God of War" class="card__img">
+                        <div class="card__content">
+                            <h3 class="card__title">God of War</h3>
+                            <p class="card__genre">Экшен</p>
+                            <p class="card__dev">Santa Monica</p>
+                            <div class="card__rating">★★★★★</div>
+                            <p class="card__price">5 499 ₽</p>
+                            <a href="catalog.html" class="btn btn--outline card__btn">В каталог</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="assets/images/BlackSpider.jpg" alt="Miles Morales" class="card__img">
+                        <div class="card__content">
+                            <h3 class="card__title">Miles Morales</h3>
+                            <p class="card__genre">Экшен</p>
+                            <p class="card__dev">Insomniac Games</p>
+                            <div class="card__rating">★★★★☆</div>
+                            <p class="card__price">3 999 ₽</p>
+                            <a href="catalog.html" class="btn btn--outline card__btn">В каталог</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="assets/images/HalkGame.jpg" alt="Hulk" class="card__img">
+                        <div class="card__content">
+                            <h3 class="card__title">Hulk Smash</h3>
+                            <p class="card__genre">Файтинг</p>
+                            <p class="card__dev">Marvel</p>
+                            <div class="card__rating">★★★★☆</div>
+                            <p class="card__price">2 499 ₽</p>
+                            <a href="catalog.html" class="btn btn--outline card__btn">В каталог</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="assets/images/SpiderGame.jpg" alt="Spider-Man" class="card__img">
+                        <div class="card__content">
+                            <h3 class="card__title">Spider-Man Remastered</h3>
+                            <p class="card__genre">Экшен</p>
+                            <p class="card__dev">Insomniac Games</p>
+                            <div class="card__rating">★★★★★</div>
+                            <p class="card__price">4 499 ₽</p>
+                            <a href="catalog.html" class="btn btn--outline card__btn">В каталог</a>
+                        </div>
+                    </article>
+
                 </div>
             </div>
         </section>
 
-        <!-- Партнеры -->
+        <!-- Партнеры (НОВЫЙ БЛОК) -->
         <section class="partners">
             <div class="container">
                 <h2 class="section-title">Наши партнеры</h2>
                 <div class="partners__grid">
-                    <img src="assets/images/partner1.png" alt="Партнер 1">
-                    <!-- + 2 других -->
+                    <img src="assets/images/SpiderGame.jpg" alt="Партнер 1" class="partners__logo">
+                    <img src="assets/images/HalkGame.jpg" alt="Партнер 2" class="partners__logo">
+                    <img src="assets/images/Thor.jpg" alt="Партнер 3" class="partners__logo">
                 </div>
             </div>
         </section>
